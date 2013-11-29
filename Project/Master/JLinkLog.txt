@@ -1,0 +1,32 @@
+
+T4D10 000:544 SEGGER J-Link V4.78e Log File (0001ms, 0278ms total)
+T4D10 000:544 DLL Compiled: Oct 25 2013 11:30:56 (0001ms, 0278ms total)
+T4D10 000:544 Logging started @ 2013-11-29 18:52 (0001ms, 0278ms total)
+T4D10 000:545 JLINK_SetWarnOutHandler(...) (0000ms, 0278ms total)
+T4D10 000:545 JLINK_OpenEx(...)
+Firmware: J-Link ARM V8 compiled Sep 20 2013 15:09:45
+Hardware: V8.00
+S/N: 17935099
+Feature(s): RDI,FlashDL,FlashBP,JFlash  returns O.K. (0266ms, 0544ms total)
+T4D10 000:811 JLINK_SetErrorOutHandler(...) (0000ms, 0544ms total)
+T4D10 000:811 JLINK_ExecCommand("ProjectFile = "D:\001_Work\002_¬ã¨s©Ò\005_Quadcopter\micro-quadcopterTmp\Project\Master\JLinkSettings.ini"", ...)  returns 0x00 (0000ms, 0544ms total)
+T4D10 000:811 JLINK_ExecCommand("Device = STM32F103CB", ...)Device "STM32F103CB" selected (128 KB flash, 20 KB RAM).  returns 0x00 (0001ms, 0545ms total)
+T4D10 000:812 JLINK_ExecCommand("DisableConnectionTimeout", ...)  returns 0x01 (0000ms, 0545ms total)
+T4D10 000:812 JLINK_GetHardwareVersion()  returns 0x13880 (0000ms, 0545ms total)
+T4D10 000:812 JLINK_GetDLLVersion()  returns 47805 (0000ms, 0545ms total)
+T4D10 000:812 JLINK_GetFirmwareString(...) (0000ms, 0545ms total)
+T4D10 000:812 JLINK_GetDLLVersion()  returns 47805 (0000ms, 0545ms total)
+T4D10 000:812 JLINK_GetCompileDateTime() (0000ms, 0545ms total)
+T4D10 000:812 JLINK_GetFirmwareString(...) (0000ms, 0545ms total)
+T4D10 000:812 JLINK_GetHardwareVersion()  returns 0x13880 (0000ms, 0545ms total)
+T4D10 000:812 JLINK_TIF_Select(JLINKARM_TIF_SWD)  returns 0x00 (0009ms, 0554ms total)
+T4D10 000:821 JLINK_SetSpeed(2000) (0001ms, 0555ms total)
+T4D10 000:822 JLINK_SetResetType(JLINKARM_RESET_TYPE_NORMAL)  returns JLINKARM_RESET_TYPE_NORMAL (0000ms, 0555ms total)
+T4D10 000:822 JLINK_Reset()
+  ***** Error: Supply voltage too low (1 Volt is required, Measured: 0.0 Volt).
+Please check target power.STM32F1xxx: Can not attach to CPU. Trying connect under reset.RESET (pin 15) high, but should be low. Please check target hardware.JLINK_GetId()  returns 0x00000000 (0000ms, 0859ms total)
+T4D10 001:126 JLINK_GetId()  returns 0x00000000 (0001ms, 0860ms total)
+T4D10 001:129 JLINK_GetFirmwareString(...) (0000ms, 0860ms total)
+T4D10 005:762 JLINK_Close() (0001ms, 0861ms total)
+T4D10 005:762  (0001ms, 0861ms total)
+T4D10 005:762 Closed (0001ms, 0861ms total)
