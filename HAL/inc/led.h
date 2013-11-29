@@ -4,5 +4,7 @@
 
 void LEDInit(void);
 void LEDON(void);
+void LEDOFF(void);
+void LEDFlash( void );
 
 #endif

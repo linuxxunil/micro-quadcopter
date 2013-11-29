@@ -25,7 +25,10 @@
 #include "task.h"
 #include "led.h"
 #include "motor.h"
-
+#include "usart.h"
+#include "mpu6050.h"
+#include "common.h"
+#include <stdio.h>
 
 void vLCDTask( void *pvParameters )
 {	
@@ -44,10 +47,13 @@ xTaskHandle hTimeTask;
 #define mainTIME_TASK_PRIORITY ( tskIDLE_PRIORITY + 4 )
 int main(void)
 {
-	LEDInit();
+	uint8_t data;
+	//LEDInit();
+	USARTInit(9600);
+	//MotorInit();
+
 	LEDON();
-	
-	MotorInit();
+
 	//motorsSetRatio();
 	
 	//PWMTest();
@@ -56,7 +62,11 @@ int main(void)
 	
 	//vTaskStartScheduler();
 
-	while(1);
+	while(1){
+			scanf("%c",&data);
+			printf("aaaa");
+	}
+
 }
 
 #ifdef  USE_FULL_ASSERT
