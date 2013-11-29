@@ -1,5 +1,5 @@
 #include "stm32f10x.h"
-
+#include "led.h"
 static GPIO_InitTypeDef GPIO_InitStructure;
 
 static void GPIOInit()
@@ -18,12 +18,17 @@ void LEDInit( void )
 	GPIOInit();
 }
 
-void LEDON( void )
+void LEDOn( void )
 {
 	GPIO_SetBits(GPIOC,GPIO_Pin_13);
 }
 
-void LEDOFF( void )
+void LEDOff( void )
 {
 	GPIO_ResetBits(GPIOC,GPIO_Pin_13);
+}
+
+void LEDFlash( void )
+{
+	GPIO_ToggleBits(GPIOC,GPIO_Pin_13);
 }

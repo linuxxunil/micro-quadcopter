@@ -30,13 +30,15 @@
 #include "common.h"
 #include <stdio.h>
 
-void vLCDTask( void *pvParameters )
+void vLEDTask( void *pvParameters )
 {	
 	
 	portTickType xLastWakeTime = xTaskGetTickCount();
 	
 	while(1) 
 	{
+		
+		LEDFlash();
 		vTaskDelayUntil( &xLastWakeTime, ( 500 / portTICK_RATE_MS ) );
 	}
 
@@ -47,25 +49,19 @@ xTaskHandle hTimeTask;
 #define mainTIME_TASK_PRIORITY ( tskIDLE_PRIORITY + 4 )
 int main(void)
 {
-	uint8_t data;
-	//LEDInit();
-	USARTInit(9600);
+	LEDInit();
+	//USARTInit(9600);
 	//MotorInit();
 
-	LEDON();
+	//LEDOn();
 
 	//motorsSetRatio();
-	
-	//PWMTest();
-	//xTaskCreate( vLCDTask, ( signed portCHAR * ) "LCD", 
-  //					configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
-	
-	//vTaskStartScheduler();
 
-	while(1){
-			scanf("%c",&data);
-			printf("aaaa");
-	}
+	xTaskCreate( vLEDTask, ( signed portCHAR * ) "LED", 
+  					configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
+	vTaskStartScheduler();
+
+	while(1);
 
 }
 
