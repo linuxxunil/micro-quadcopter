@@ -26,9 +26,7 @@
 #include "led.h"
 #include "motor.h"
 #include "usart.h"
-#include "mpu6050.h"
-#include "common.h"
-#include <stdio.h>
+#include<stdio.h>
 
 void vLEDTask( void *pvParameters )
 {	
@@ -37,20 +35,20 @@ void vLEDTask( void *pvParameters )
 	
 	while(1) 
 	{
+		//vTaskDelayUntil( &xLastWakeTime, ( 1000 / portTICK_RATE_MS ) );
 		
+	
 		LEDFlash();
-		vTaskDelayUntil( &xLastWakeTime, ( 500 / portTICK_RATE_MS ) );
+		vTaskDelay(1000);
 	}
+} 
+extern void vSystemTask( void *pvParameters );
 
-}
-
-
-xTaskHandle hTimeTask;
-#define mainTIME_TASK_PRIORITY ( tskIDLE_PRIORITY + 4 )
 int main(void)
 {
 	LEDInit();
-	//USARTInit(9600);
+	USARTInit(115200);
+	
 	//MotorInit();
 
 	//LEDOn();
@@ -59,6 +57,10 @@ int main(void)
 
 	xTaskCreate( vLEDTask, ( signed portCHAR * ) "LED", 
   					configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
+	
+	xTaskCreate( vSystemTask, ( signed portCHAR * ) "System", 
+  					configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
+	
 	vTaskStartScheduler();
 
 	while(1);

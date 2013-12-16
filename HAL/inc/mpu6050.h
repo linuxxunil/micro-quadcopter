@@ -438,5 +438,22 @@ void MPU6050_GetMotion6(int16_t* ax, int16_t* ay, int16_t* az, int16_t* gx, int1
 float MPU6050_GetFullScaleAccelGPL(void);
 float MPU6050_GetFullScaleGyroDPL(void);
 
+//*********************************************************
+// By Jesse
+//*********************************************************
+struct AccelData {
+	s16 x;
+	s16	y;
+	s16 z;
+	s16 offsetX;
+	s16 offsetY;
+	s16 offsetZ;
+	float trueX;
+	float trueY;
+	float trueZ;
+};
+
+void MPU6050_Calibrate( void );
+
 #endif /* __MPU6050_H */
 /******************* (C) COPYRIGHT 2012 Harinadha Reddy Chintalapalli *****END OF FILE****/

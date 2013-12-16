@@ -32,6 +32,10 @@ THE SOFTWARE.
 #include "MPU6050.h"
 #include "stm32f10x_i2c.h"
 #include "stdint.h"
+#include "common.h"
+#include "FreeRTOS.h"
+#include "task.h"
+
 /** @defgroup MPU6050_Library
 * @{
 */
@@ -46,13 +50,19 @@ static uint8_t tmp;
  * the clock source to use the X Gyro for reference, which is slightly better than
  * the default internal clock source.
  */
+//static bool isInit = FALSE;
 void MPU6050_Initialize() 
 {
+		//if (isInit)
+		//	return;
+	
 		MPU6050_I2C_Init();	
     MPU6050_SetClockSource(MPU6050_CLOCK_PLL_XGYRO);
     MPU6050_SetFullScaleGyroRange(MPU6050_GYRO_FS_250);
-    MPU6050_SetFullScaleAccelRange(MPU6050_ACCEL_FS_2);
+    MPU6050_SetFullScaleAccelRange(MPU6050_ACCEL_FS_4);
     MPU6050_SetSleepModeStatus(DISABLE); 
+		
+		//isInit = TRUE;
 }
 
 /** Verify the I2C connection.
@@ -554,3 +564,5 @@ float MPU6050_GetFullScaleGyroDPL()
 
   return range;
 }
+
+

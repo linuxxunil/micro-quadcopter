@@ -349,7 +349,7 @@
             <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>STM32F10X_MD,USE_STDPERIPH_DRIVER</Define>
+              <Define>STM32F10X_MD,USE_STDPERIPH_DRIVER,ARM_MATH_CM3</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\Include;..\..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\..\Libraries\FreeRTOS\include;..\..\HAL\inc</IncludePath>
             </VariousControls>
@@ -411,6 +411,11 @@
               <FileName>system_stm32f10x.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Source\system_stm32f10x.c</FilePath>
+            </File>
+            <File>
+              <FileName>system_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Source\system_task.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -578,6 +583,11 @@
           <GroupName>HAL</GroupName>
           <Files>
             <File>
+              <FileName>mpu6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\HAL\src\mpu6050.c</FilePath>
+            </File>
+            <File>
               <FileName>led.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\HAL\src\led.c</FilePath>
@@ -588,14 +598,34 @@
               <FilePath>..\..\HAL\src\motor.c</FilePath>
             </File>
             <File>
-              <FileName>mpu6050.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\HAL\src\mpu6050.c</FilePath>
-            </File>
-            <File>
               <FileName>usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\HAL\src\usart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Algorithm</GroupName>
+          <Files>
+            <File>
+              <FileName>pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Algorithm\pid.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>ARM_Math</GroupName>
+          <Files>
+            <File>
+              <FileName>arm_sin_f32.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Libraries\CMSIS\DSP_Lib\Source\FastMathFunctions\arm_sin_f32.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_cos_f32.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Libraries\CMSIS\DSP_Lib\Source\FastMathFunctions\arm_cos_f32.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -231,6 +231,7 @@ void SystemInit (void)
   /* Reset PLLSRC, PLLXTPRE, PLLMUL and USBPRE/OTGFSPRE bits */
   RCC->CFGR &= (uint32_t)0xFF80FFFF;
 
+
 #ifdef STM32F10X_CL
   /* Reset PLL2ON and PLL3ON bits */
   RCC->CR &= (uint32_t)0xEBFFFFFF;
@@ -1017,7 +1018,7 @@ static void SetSysClockTo72(void)
     FLASH->ACR &= (uint32_t)((uint32_t)~FLASH_ACR_LATENCY);
     FLASH->ACR |= (uint32_t)FLASH_ACR_LATENCY_2;    
 
- 
+		RCC->CFGR |= (uint32_t)RCC_CFGR_ADCPRE_DIV6;
     /* HCLK = SYSCLK */
     RCC->CFGR |= (uint32_t)RCC_CFGR_HPRE_DIV1;
       
@@ -1053,7 +1054,7 @@ static void SetSysClockTo72(void)
     /*  PLL configuration: PLLCLK = HSE * 9 = 72 MHz */
     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_PLLSRC | RCC_CFGR_PLLXTPRE |
                                         RCC_CFGR_PLLMULL));
-    RCC->CFGR |= (uint32_t)(RCC_CFGR_PLLSRC_HSE | RCC_CFGR_PLLMULL9);
+    RCC->CFGR |= (uint32_t)(RCC_CFGR_PLLSRC_HSE | RCC_CFGR_PLLMULL9|RCC_CFGR_PLLXTPRE);
 #endif /* STM32F10X_CL */
 
     /* Enable PLL */

@@ -2,6 +2,7 @@
 #include "usart.h"
 #include "led.h"
 #include <stdio.h>
+#include <stdbool.h>
 
 #define USART_TYPE       				USART1
 #define USART_PERIF      				RCC_APB2Periph_USART1
@@ -102,8 +103,12 @@ void USART_Configuration(int baudrate)
   USART_Cmd(USART_TYPE, ENABLE);
 }
 
+static bool isInit = false;
 void USARTInit(int baudrate)
 {
+	if (isInit)
+    return;
+	
 	RCC_Configuration();
 	
 	//NVIC_Configuration();
@@ -111,6 +116,9 @@ void USARTInit(int baudrate)
 	GPIO_Configuration();
 	
 	USART_Configuration(baudrate);
+	
+	
+	isInit = true;
 }
 
 /* Use Interrupt */
